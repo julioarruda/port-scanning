@@ -12,5 +12,6 @@ IP=sys.argv[1]
 for porta in range (1,65535):
     meusocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     if (meusocket.connect_ex((IP,porta)) == 0):
-        print ("Porta: ",porta, " [ABERTA]")
+        banner = meusocket.recv(1024)
+        print ("Porta: ",porta, " [ABERTA] - Banner: ", banner)        
         meusocket.close()
