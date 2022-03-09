@@ -11,7 +11,6 @@ IP=sys.argv[1]
 
 for porta in range (1,65535):
     meusocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    c = meusocket.connect(IP,porta)
-    if c == 0:
+    if (meusocket.connect(IP,porta) == 0):
         print ("Porta: ",porta, " [ABERTA]")
         meusocket.close()
